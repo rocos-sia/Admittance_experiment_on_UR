@@ -233,7 +233,7 @@ int main( int argc, char* argv[] )
     KDL::ChainIkSolverVel_pinv ik_vel{ UR_chain };
 
     bool is_remoted_control{ false };
-    nh.param( "/admittance_Control/is_remoted_control", is_remoted_control, false );
+    nh.param( "/admittance_Control/real_robot", is_remoted_control, false );
     if ( is_remoted_control )
     {
         rtde_control_ptr.reset( new RTDEControlInterface{ "192.168.3.101", RTDEControlInterface::FLAG_USE_EXT_UR_CAP } );

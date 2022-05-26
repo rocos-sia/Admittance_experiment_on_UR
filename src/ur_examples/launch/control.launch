@@ -1,4 +1,11 @@
 <launch>
+  <arg name="type" default="admittance_Control"/>
+  <arg name="real_robot" default="false"/>
 
-  <node name="admittance_Control" pkg="ur_examples" type="admittance_Control" required="true" output="screen"> <param name="is_remoted_control" type="bool" value="true" /></node>
+  <node name="$(arg type)" pkg="ur_examples" type="$(arg type)" required="true" output="screen">
+    <param name="simulation" type="bool" value="$(arg simulation)" />
+  </node>
+
+ <include file="$(find ur_description)/launch/view_ur5e.launch"/>
+
 </launch>

@@ -17,6 +17,6 @@
   
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
- <include file="$(find ur_examples)/launch/control.launch"/>
+
 
 </launch>
