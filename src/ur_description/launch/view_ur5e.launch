@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ur_description)/launch/load_ur5e.launch"/>
+
+
+  <arg name="gui" default="false" />
+  <arg name="rvizconfig" default="$(find ur_description)/launch/config.rviz" />
+
+
+  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen">
+    <param name="use_gui" value="false"/>
+    <rosparam param="source_list">["/my_joint_state"]</rosparam>
+  </node>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+ <include file="$(find ur_examples)/launch/control.launch"/>
+
+</launch>

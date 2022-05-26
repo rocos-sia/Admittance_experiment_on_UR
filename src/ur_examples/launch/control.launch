@@ -1,0 +1,4 @@
+<launch>
+
+  <node name="admittance_Control" pkg="ur_examples" type="admittance_Control" required="true" output="screen"> <param name="is_remoted_control" type="bool" value="true" /></node>
+</launch>
