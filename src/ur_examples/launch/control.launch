@@ -3,7 +3,7 @@
   <arg name="real_robot" default="false"/>
 
   <node name="$(arg type)" pkg="ur_examples" type="$(arg type)" required="true" output="screen">
-    <param name="simulation" type="bool" value="$(arg simulation)" />
+    <param name="real_robot" type="bool" value="$(arg real_robot)" />
   </node>
 
  <include file="$(find ur_description)/launch/view_ur5e.launch"/>
