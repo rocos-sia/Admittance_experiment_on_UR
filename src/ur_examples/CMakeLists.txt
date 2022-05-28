@@ -23,3 +23,9 @@ LINK_DIRECTORIES(3_party_library/track_Ik/lib  3_party_library/kdl/lib    )
 
 add_executable(admittance_Control src/UR_control/admittance_Control/admittance_Control.cpp   )
 target_link_libraries(admittance_Control  PUBLIC ur_rtde::rtde    kdl-1-5  orocos-kdl-models   trac_ik   nlopt  ${catkin_LIBRARIES}  )
+
+
+
+add_executable(moveL_admittance_Control src/UR_control/admittance_Control/moveL_admittance_Control.cpp   3_party_library/velocity_profile/interpolate.cc )
+target_link_libraries(moveL_admittance_Control  PUBLIC ur_rtde::rtde    kdl-1-5  orocos-kdl-models   trac_ik   nlopt  ${catkin_LIBRARIES}  )
+
